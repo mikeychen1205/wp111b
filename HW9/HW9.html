@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .navigation {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .navigation a {
+      display: inline-block;
+      margin: 5px;
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    .navigation a:hover {
+      background-color: #45a049;
+    }
+
+    .content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 4px;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .form-container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .form-container label,
+    .form-container input {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .form-container input[type="text"],
+    .form-container input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .form-container button {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function 切换页面(pageId) {
+      var 页面元素 = document.getElementsByClassName("page");
+      for (var i = 0; i < 页面元素.length; i++) {
+        页面元素[i].classList.remove("active");
+      }
+
+      var 目标页面 = document.getElementById(pageId);
+      目标页面.classList.add("active");
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>页面切换示例</h1>
+    <div class="navigation">
+      <a href="#" onclick="切换页面('home')">首頁</a>
+      <a href="#" onclick="切换页面('register')">註冊</a>
+      <a href="#" onclick="切换页面('login')">登入</a>
+      <a href="#" onclick="切换页面('logout')">登出</a>
+    </div>
+    <div class="content">
+      <div id="home" class="page active">
+        <h2>首頁</h2>
+      </div>
+      <div id="register" class="page">
+        <h2>註冊</h2>
+        <div class="form-container">
+          <label for="register-username">用戶名：</label>
+          <input type="text" id="register-username" placeholder="請輸入用戶名">
+          <label for="register-password">密碼：</label>
+          <input type="password" id="register-password" placeholder="請輸入密碼">
+          <button onclick="切换页面('home')">註冊</button>
+        </div>
+      </div>
+      <div id="login" class="page">
+        <h2>登入</h2>
+        <div class="form-container">
+          <label for="login-username">用戶名：</label>
+          <input type="text" id="login-username" placeholder="請輸入用戶名">
+          <label for="login-password">密碼：</label>
+          <input type="password" id="login-password" placeholder="請輸入密碼">
+          <button onclick="切换页面('home')">登入</button>
+        </div>
+      </div>
+      <div id="logout" class="page">
+        <h2>登出</h2>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
